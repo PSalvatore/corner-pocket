@@ -14,7 +14,16 @@ angular.module('playerService', []).factory('Player', function($http) {
                 headers: { 'Content-Type' : 'application/x-www-form-urlencoded' },
                 data: queryParams(playerData)
             });
-        }
+        },
+	
+	update : function(playerData) {
+	    return $http({
+                method: 'PUT',
+                url: '/api/players/' + playerData,
+                headers: { 'Content-Type' : 'application/x-www-form-urlencoded' },
+                data: queryParams(playerData)
+            });
+	}
 
     };
 

@@ -37,4 +37,29 @@ class PlayerController extends Controller
             'success' => true
         ]);
     }
+    
+    /**
+     * update player instance.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function update(Request $request)
+    {
+        // Validate the request...
+	Log::info("update");
+	Log::info("request: ". $request);
+	
+	DB::table('players')->increment('games_played', 1, ['name' => $request->input('player1')]);
+	DB::table('players')->increment('games_played', 1, ['name' => $request->input('player2')]);
+	DB::table('players')->increment('wins', 1, ['name' => $request->input('winner')]);
+	
+//        $player = DB::table('players')->where('name', $request->input('name'))->first();
+//	$player->games_played .= 1;
+//	$player->save();
+	
+        return response()->json([
+            'success' => true
+        ]);
+    }
 }

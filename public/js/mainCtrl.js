@@ -46,9 +46,20 @@ angular.module('mainCtrl', []).controller('main', function($scope, $http, Player
     $scope.startGame = function() {
         $scope.start = true;
     };
+    
+    $scope.setWinner = function(winning_player) {
+	console.log(winning_player);
+	$scope.playerData.winner = winning_player;
+	$scope.recordGame();
+    };
 
-    $scope.rewardWinner = function() {
-
+    $scope.recordGame = function() {
+	console.log("record game");
+	Player.update($scope.playerData).then(function (success){
+	    console.log('success', success);
+	},function (error){
+            console.log(error);
+        });
     };
 
 });
