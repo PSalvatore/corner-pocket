@@ -1,0 +1,8 @@
+<div class="add-player-container">
+    <form ng-submit="addPlayer()">
+        <label>Add Player</label>
+        <input id="add-player" name="name" ng-model="playerData.name" type="text"/>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+    <div class="message-container" ng-show="showMessage" ng-bind="message"></div>
+</div>

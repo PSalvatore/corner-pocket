@@ -1,0 +1,13 @@
+<div class="record-result-container">
+    <label>Record Result</label>
+    <div class="player-select-container">
+        <form ng-submit="setPlayers()">
+            <label>Player 1</label>
+            <input id="player1" name="player1" ng-model="playerData.player1" type="text"/>
+            <div class='vs'>vs</div>
+            <label>Player 2</label>
+            <input id="player2" name="player2" ng-model="playerData.player2" type="text"/>
+            <button type="submit" class="btn btn-primary">Start Game</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="leaderboard-container">
+    <div>Leaderboard</div>
+    <div class="list">
+        <div class="player" ng-repeat="player in players">
+            <div class="rank">
+                <div class="num" ng-bind="$index + 1"></div>
+                <span class="dot">.</span>
+            </div>
+            <div class="name" ng-bind="player.name"></div>
+            <div class="wins" ng-bind="player.wins"></div>
+        </div>
+    </div>
+</div>
