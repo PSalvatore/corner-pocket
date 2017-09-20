@@ -5,6 +5,8 @@ angular.module('mainCtrl', []).controller('main', function($scope, $http, Player
     // loading variable to show the spinning loading icon
     $scope.loading = true;
 
+
+
     // GET ALL PLAYERS ==============
     Player.get().then(function (data){
         $scope.players = data.data;
@@ -28,6 +30,25 @@ angular.module('mainCtrl', []).controller('main', function($scope, $http, Player
         },function (error){
             console.log(error);
         });
+    };
+
+    // RECORD STUFF ==============
+    $scope.start = false;
+
+    $scope.setPlayer = function(e, player) {
+        if(player === 1){
+            $scope.playerData.player1 = e.toElement.innerHTML;
+        } else if (player === 2){
+            $scope.playerData.player2 = e.toElement.innerHTML;
+        }
+    };
+
+    $scope.startGame = function() {
+        $scope.start = true;
+    };
+
+    $scope.rewardWinner = function() {
+
     };
 
 });
