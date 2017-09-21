@@ -5,7 +5,11 @@ angular.module('mainCtrl', []).controller('main', function($scope, $http, Player
     // loading variable to show the spinning loading icon
     $scope.loading = true;
 
-
+    // define messaging stuff
+    $scope.addMessage = "";
+    $scope.showAddMessage = false;
+    $scope.gameMessage = "";
+    $scope.showGameMessage = false;
 
     // GET ALL PLAYERS ==============
     Player.get().then(function (data){
@@ -20,11 +24,12 @@ angular.module('mainCtrl', []).controller('main', function($scope, $http, Player
         $scope.loading = true;
 
         Player.save($scope.playerData).then(function (success){
-            $scope.message =  successWord() + "! " + $scope.playerData.name + " has been added!";
-            $scope.showMessage = true;
+            $scope.addMessage =  successWord() + "! " + $scope.playerData.name + " has been added!";
+            $scope.showAddMessage = true;
             $scope.loading = false;
             $timeout(function() {
-                $scope.showMessage = false;
+                $scope.showAddMessage = false;
+                $scope.addMessage = "";
                 $scope.playerData.name = null;
             }, 5000);
         },function (error){
@@ -46,18 +51,21 @@ angular.module('mainCtrl', []).controller('main', function($scope, $http, Player
     $scope.startGame = function() {
         $scope.start = true;
     };
-    
+
     $scope.setWinner = function(winning_player) {
-	console.log(winning_player);
-	$scope.playerData.winner = winning_player;
-	$scope.recordGame();
+    	$scope.playerData.winner = winning_player;
+    	$scope.recordGame();
     };
 
     $scope.recordGame = function() {
-	console.log("record game");
-	Player.update($scope.playerData).then(function (success){
-	    console.log('success', success);
-	},function (error){
+    	Player.update($scope.playerData).then(function (success){
+    	    $scope.gameMessage = "Congrats on the win, " + $scope.playerData.winner +  "!";
+            $scope.showGameMessage = true;
+            $timeout(function() {
+                $scope.showGameMessage = false;
+                $scope.gameMessage = "";
+            }, 5000);
+    	},function (error){
             console.log(error);
         });
     };

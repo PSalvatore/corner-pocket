@@ -22,8 +22,10 @@
         </form>
     </div>
     <div ng-show="start" class="choose-winner-container">
-	<button ng-click="setWinner(playerData.player1)" class="player1-win" ng-bind="playerData.player1"></button>
-	<div class='vs'>vs</div>
-	<button ng-click="setWinner(playerData.player2)" class="player2-win" ng-bind="playerData.player2"></button>
+    	<button ng-click="setWinner(playerData.player1)" class="player1-win" ng-bind="playerData.player1"></button>
+    	<div class='vs'>vs</div>
+    	<button ng-click="setWinner(playerData.player2)" class="player2-win" ng-bind="playerData.player2"></button>
+    </div>
+    <div class="game-message-container" ng-show="showGameMessage" ng-bind="gameMessage">
     </div>
 </div>

@@ -1,0 +1,7 @@
+.player > * {
+    display: inline-block;;
+}
+
+.rank > * {
+    display: inline-block;
+}

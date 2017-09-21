@@ -14,7 +14,8 @@ class PlayerController extends Controller
 {
     public function index(Request $request)
     {
-        return DB::table('players')->select('*')->get();
+        return Player::all();
+        // return DB::table('players')->select('*')->get();
     }
 
     /**
@@ -30,14 +31,13 @@ class PlayerController extends Controller
         $player = new Player;
 
         $player->name = $request->input('name');
-        Log::info('~~~~~~~~~~~~~~~~Name: '.$request->input('name'));
         $player->save();
 
         return response()->json([
             'success' => true
         ]);
     }
-    
+
     /**
      * update player instance.
      *
@@ -47,17 +47,11 @@ class PlayerController extends Controller
     public function update(Request $request)
     {
         // Validate the request...
-	Log::info("update");
-	Log::info("request: ". $request);
-	
-	DB::table('players')->increment('games_played', 1, ['name' => $request->input('player1')]);
-	DB::table('players')->increment('games_played', 1, ['name' => $request->input('player2')]);
-	DB::table('players')->increment('wins', 1, ['name' => $request->input('winner')]);
-	
-//        $player = DB::table('players')->where('name', $request->input('name'))->first();
-//	$player->games_played .= 1;
-//	$player->save();
-	
+
+        Player::where('name', $request->input('player1'))->increment('games_played', 1);
+        Player::where('name', $request->input('player2'))->increment('games_played', 1);
+        Player::where('name', $request->input('winner'))->increment('wins', 1);
+
         return response()->json([
             'success' => true
         ]);

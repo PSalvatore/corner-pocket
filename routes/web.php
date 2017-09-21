@@ -13,7 +13,7 @@
 
 Route::prefix('api')->group(function () {
     Route::resource('players', 'playerController',
-        ['only' => ['index', 'store']]
+        ['only' => ['index', 'store', 'update']]
     );
 });
 

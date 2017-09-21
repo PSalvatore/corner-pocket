@@ -15,15 +15,15 @@ angular.module('playerService', []).factory('Player', function($http) {
                 data: queryParams(playerData)
             });
         },
-	
-	update : function(playerData) {
-	    return $http({
+
+    	update : function(playerData) {
+    	    return $http({
                 method: 'PUT',
                 url: '/api/players/' + playerData,
                 headers: { 'Content-Type' : 'application/x-www-form-urlencoded' },
                 data: queryParams(playerData)
             });
-	}
+    	}
 
     };
 
