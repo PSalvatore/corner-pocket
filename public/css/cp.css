@@ -1,3 +1,25 @@
+.main-header {
+    text-align: center;
+}
+
+.tile {
+    font-size: 1.5rem;
+    text-align: center;
+    height: 200px;
+    line-height: 200px;
+    margin-bottom: .75rem;
+    background-color: gray;
+}
+
+.tile.half-height {
+    height: 100px;
+    line-height: 100px;
+}
+
+a:hover {
+    text-decoration: none !important;
+}
+
 .player > * {
     display: inline-block;;
 }
