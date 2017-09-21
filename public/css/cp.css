@@ -3,6 +3,7 @@
     line-height: 55px;
     width: 100%;
     border-bottom: solid 5px darkgray;
+    margin-bottom: .75rem;
 }
 .main-header {
     font-size: 1.5rem;
@@ -19,6 +20,9 @@
     background-image: url('../chalk-icon.png');
     background-repeat: no-repeat;
     background-position: center;
+}
+.page-title {
+    font-size: 1.75rem
 }
 .tile {
     font-size: 1.5rem;
@@ -44,4 +48,17 @@ a:hover {
 
 .rank > * {
     display: inline-block;
+}
+th.wins {
+    text-decoration: underline;
+}
+.num {
+    padding-left: 25px !important;
+}
+
+.leaderboard-container .headers > * {
+    display: inline-block
+}
+.form-control {
+    margin-bottom: .75rem
 }

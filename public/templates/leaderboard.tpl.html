@@ -1,13 +1,32 @@
 <div class="leaderboard-container">
-    <div>Leaderboard</div>
-    <div class="list">
-        <div class="player" ng-repeat="player in players | orderBy:'-wins'">
-            <div class="rank">
-                <div class="num" ng-bind="$index + 1 + '.'"></div>
-            </div>
-            <div class="name" ng-bind="player.name"></div>
-            <div class="wins" ng-bind="player.wins"></div>
-            <div class="win-percentage" ng-bind="player.wins / player.games_played | number: 3"></div>
-        </div>
+    <div class="row">
+	<div class="col-lg-4">
+	    <div class="page-title ">Leaderboard</div>
+	</div>
+	<div class="col-lg-8">
+	    <input type="text" class="form-control" placeholder="Search names" ng-model="searchName">
+	</div>
+    </div>
+    <div class="row">
+	<table class="table table-striped">
+	    <thead>
+		<tr>
+		    <th class="rank col-lg-2 col-2">Rank</th>
+		    <th class="name col-lg-6 col-6">Name</th>
+		    <th class="wins col-lg-2 col-2">Wins</th>
+		    <th class="win-percentage col-lg-2 col-2">Win %</th>
+		</tr>
+	    </thead>
+	    <tbody>
+		<tr ng-repeat="player in players | orderBy:'-wins' | filter:searchName">
+		    <td class="num col-lg-2 col-2" ng-bind="$index + 1 + '.'"></td>
+		    <td class="name col-lg-6 col-6" ng-bind="player.name"></td>
+		    <td class="wins col-lg-2 col-2" ng-bind="player.wins"></td>
+		    <td class="win-percentage col-lg-2 col-2" ng-bind="player.wins / player.games_played | number: 3"></td>
+		</tr>
+	    </tbody>
+	</table>
     </div>
 </div>
+
+
