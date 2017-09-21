@@ -6,8 +6,10 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="shortcut icon" href="chalk-icon.ico" />
 
-        <title>Corner Pocket</title>
+        <title>Chalk It Up</title>
 
         <!-- Script -->
         <script src="/js/angular/angular.js"></script>
@@ -28,7 +30,10 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     </head>
     <body ng-app="app" ng-controller="main">
-        <h1 class="main-header">Corner Pocket</h1>
+	<header class="top-bar">
+	    <div class="logo"><div class="icon"></div></div>
+	    <div class="main-header">Chalk It Up</div>
+	</header>
         <div class="container" ng-view></div>
     </body>
 </html>

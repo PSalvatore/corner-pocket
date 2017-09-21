@@ -12,7 +12,7 @@
 */
 
 Route::prefix('api')->group(function () {
-    Route::resource('players', 'playerController',
+    Route::resource('players', 'PlayerController',
         ['only' => ['index', 'store', 'update']]
     );
 });

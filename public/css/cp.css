@@ -1,7 +1,25 @@
-.main-header {
-    text-align: center;
+.top-bar {
+    display: inline-flex;
+    line-height: 55px;
+    width: 100%;
+    border-bottom: solid 5px darkgray;
 }
-
+.main-header {
+    font-size: 1.5rem;
+    text-align: left;
+}
+.logo {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.icon {
+    width: 55px;
+    height: 55px;
+    background-size: contain;
+    background-image: url('../chalk-icon.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
 .tile {
     font-size: 1.5rem;
     text-align: center;
