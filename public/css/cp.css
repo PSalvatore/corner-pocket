@@ -62,3 +62,21 @@ th.wins {
 .form-control {
     margin-bottom: .75rem
 }
+.game-message-container.ng-binding {
+    text-align: center;
+    font-weight: bold;
+    color: #166db1;
+    border: 1px solid #166db1;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+.choose-winner-container {
+    margin-left: 0px !important;
+    padding: 1rem 1.25rem !important;
+}
+.vs {
+    font-size: 5rem;
+    line-height: 25px;
+    height: 25px;
+    text-align: center;
+}

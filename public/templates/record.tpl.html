@@ -1,31 +1,33 @@
 <div class="record-result-container">
-    <label>Record Result</label>
     <div ng-hide="start"  class="player-select-container">
+	<label>Set Players</label>
         <form ng-submit="startGame()">
-            <div class="player1-search-container">
-                <label>Player 1</label>
-                <input id="player1" name="player1" placeholder="Search Players" ng-model="playerData.player1" type="text"/>
-                <div ng-show="playerData.player1.length > 0" ng-repeat="player in players | filter:playerData.player1">
-                    <div ng-click="setPlayer($event, 1)" class="name" ng-bind="player.name"></div>
-                </div>
-            </div>
+		<div class="player1-search-container">
+		    <label>Player 1</label>
+		    <input id="player1" name="player1" placeholder="Search Players" ng-model="playerData.player1" type="text"/>
+		    <div ng-show="playerData.player1.length > 0" ng-repeat="player in players | filter:playerData.player1">
+			<div ng-click="setPlayer($event, 1)" class="name" ng-bind="player.name"></div>
+		    </div>
+		</div>
 
-            <div class="player1-search-container">
-                <label>Player 2</label>
-                <input id="player2" name="player2" placeholder="Search Players" ng-model="playerData.player2" type="text"/>
+		<div class="player1-search-container">
+		    <label>Player 2</label>
+		    <input id="player2" name="player2" placeholder="Search Players" ng-model="playerData.player2" type="text"/>
 
-                <div ng-show="playerData.player2.length > 0" ng-repeat="player in players | filter:playerData.player2">
-                    <div ng-click="setPlayer($event, 2)" class="name" ng-bind="player.name"></div>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Start Game</button>
+		    <div ng-show="playerData.player2.length > 0" ng-repeat="player in players | filter:playerData.player2">
+			<div ng-click="setPlayer($event, 2)" class="name" ng-bind="player.name"></div>
+		    </div>
+		</div>
+		<button type="submit" class="btn btn-primary">Start Game</button>
         </form>
     </div>
-    <div ng-show="start" class="choose-winner-container">
-    	<button ng-click="setWinner(playerData.player1)" class="player1-win" ng-bind="playerData.player1"></button>
-    	<div class='vs'>vs</div>
-    	<button ng-click="setWinner(playerData.player2)" class="player2-win" ng-bind="playerData.player2"></button>
+    <label>Select Winner</label>
+    <div class="row form-control choose-winner-container justify-content-center" ng-show="start">
+	<button type="button" class="btn btn-primary win-btn col-lg-4 col-12" ng-click="setWinner(playerData.player1)" ng-bind="playerData.player1"></button>
+	<div class='vs col-lg-4 col-12'>vs</div>
+	<button type="button" class="btn btn-primary win-btn col-lg-4 col-12" ng-click="setWinner(playerData.player2)" ng-bind="playerData.player2"></button>
     </div>
-    <div class="game-message-container" ng-show="showGameMessage" ng-bind="gameMessage">
+    <div class="row justify-content-center">
+	<div class="game-message-container col-lg-6 col-md-6 col-6 " ng-show="showGameMessage" ng-bind="gameMessage"></div>
     </div>
 </div>
