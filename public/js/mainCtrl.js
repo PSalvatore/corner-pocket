@@ -43,8 +43,10 @@ angular.module('mainCtrl', []).controller('main', function($scope, $http, Player
     $scope.setPlayer = function(e, player) {
         if(player === 1){
             $scope.playerData.player1 = e.toElement.innerHTML;
+            $scope.player1DropShow = false;
         } else if (player === 2){
             $scope.playerData.player2 = e.toElement.innerHTML;
+            $scope.player2DropShow = false;
         }
     };
 

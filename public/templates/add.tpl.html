@@ -1,18 +1,18 @@
 <div class="add-player-container">
     <form ng-submit="addPlayer()">
         <div class="row">
-	    <div class="col-md-12">
-		<div class="page-title ">Add Player</div>
-	    </div>
-	</div>
+    	    <div class="col-md-12">
+        		<div class="page-title ">Add Player</div>
+    	    </div>
+    	</div>
 	<div class="row">
 	    <div class="col-md-10">
-		<input id="add-player" class="form-control" name="name" ng-model="playerData.name" type="text"/>
+    		<input checkplayername id="add-player" class="form-control" name="name" ng-model="playerData.name" type="text"/>
 	    </div>
 	    <div class="col-md-2">
-		<button type="submit" class="btn btn-primary">Add</button>
+    		<button type="submit" class="btn btn-primary">Add</button>
 	    </div>
 	</div>
     </form>
-    <div class="add-message-container" ng-show="showAddMessage" ng-bind="addMessage"></div>
+    <div class="message-container" ng-show="showAddMessage" ng-bind="addMessage"></div>
 </div>
