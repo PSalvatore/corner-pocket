@@ -203,3 +203,21 @@ th.wins {
     top: 50%;
     transform: translateY(-50%);
 }
+.loading-spinner-container {
+    text-align: center;
+}
+.loading-spinner-container svg{
+    margin-top: 1rem;
+    width: 20px;
+    height: 20px;
+    animation: load 1.4s infinite linear;
+}
+@keyframes load {
+0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
