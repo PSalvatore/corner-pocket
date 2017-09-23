@@ -8,25 +8,45 @@
 	</div>
     </div>
     <div class="row">
-	<table class="table table-striped">
+	<table ng-init="sortCol = 'wins'; sortReverse = true" class="table table-striped">
 	    <thead>
 		<tr>
-		    <th class="rank col-lg-2 col-2">Rank</th>
-		    <th class="name col-lg-6 col-6">Name</th>
-		    <th class="wins col-lg-2 col-2">Wins</th>
-		    <th class="win-percentage col-lg-2 col-2">Win %</th>
+		    <th ng-click="sortCol= 'wins'; sortReverse = !sortReverse" class="rank col-lg-2 col-2">
+                <a>
+                    Rank
+                </a>
+            </th>
+		    <th ng-click="sortCol = 'name'; sortReverse = !sortReverse" class="name col-lg-6 col-6">
+                <a>
+                    Name
+                    <span ng-show="sortCol == 'name' && !sortReverse">&#9660;</span>
+                    <span ng-show="sortCol == 'name' && sortReverse">&#9650;</span>
+                </a>
+            </th>
+		    <th ng-click="sortCol = 'wins'; sortReverse = !sortReverse" class="wins col-lg-2 col-2">
+                <a>
+                    Wins
+                    <span ng-show="sortCol == 'wins' && !sortReverse">&#9660;</span>
+                    <span ng-show="sortCol == 'wins' && sortReverse">&#9650;</span>
+                </a>
+            </th>
+		    <th ng-click="sortCol = 'win_percentage'; sortReverse = !sortReverse" class="win-percentage col-lg-2 col-2">
+                <a>
+                    Win %
+                    <span ng-show="sortCol == 'win_percentage' && !sortReverse">&#9660;</span>
+                    <span ng-show="sortCol == 'win_percentage' && sortReverse">&#9650;</span>
+                </a>
+            </th>
 		</tr>
 	    </thead>
 	    <tbody>
-		<tr ng-repeat="player in players | orderBy:'-wins' | filter:searchName">
-		    <td class="num col-lg-2 col-2" ng-bind="$index + 1 + '.'"></td>
+		<tr ng-repeat="player in players | orderBy:sortCol:sortReverse | filter:searchName">
+		    <td class="rank col-lg-2 col-2" ng-bind="player.rank"></td>
 		    <td class="name col-lg-6 col-6" ng-bind="player.name"></td>
 		    <td class="wins col-lg-2 col-2" ng-bind="player.wins"></td>
-		    <td class="win-percentage col-lg-2 col-2" ng-bind="player.wins / player.games_played | number: 3"></td>
+		    <td class="win-percentage col-lg-2 col-2" ng-bind="player.win_percentage | number: 3"></td>
 		</tr>
 	    </tbody>
 	</table>
     </div>
 </div>
-
-

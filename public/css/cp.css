@@ -106,13 +106,12 @@
 .rank > * {
     display: inline-block;
 }
-th.wins {
-    text-decoration: underline;
+th{
+    cursor: pointer;
 }
-.num {
-    padding-left: 25px !important;
+th.wins, th.rank, td.wins, td.rank{
+    text-align: center;
 }
-
 .leaderboard-container .headers > * {
     display: inline-block
 }

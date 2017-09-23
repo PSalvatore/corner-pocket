@@ -100,7 +100,6 @@ angular.module('mainCtrl', []).controller('main', function($scope, $http, $locat
             $scope.showRecordErrorMessage = true;
         });
     };
-
 });
 
 function successWord(){
