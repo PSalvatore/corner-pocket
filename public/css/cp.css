@@ -37,6 +37,10 @@
     transition: all 0.3s ease;
     overflow: hidden;
 }
+.tile.half-height {
+    height: 100px;
+    line-height: 100px;
+}
 .tile:hover {
     color: #166db1;
     border: 2px solid gray;
@@ -46,23 +50,55 @@
     color: gray;
     font-size: 20rem;
 }
-.tile.half-height {
+.tile:hover .bg-icon#leaderboard {
+    margin-top: -2px;
     height: 100px;
-    line-height: 100px;
+    fill: gray;
+}
+.tile:hover .bg-icon#add {
+    margin-top: -4px;
+    height: 105px;
+    fill: gray;
+}
+.tile:hover .text{
+    color: white;
+    background-color: gray;
 }
 .background-icon-container {
-    position: absolute;
+    position: relative;
     width: 100%;
 }
 .bg-icon#record{
     transition: all 0.5s ease;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 23rem;
     color: #eee;
 }
-a:hover {
-    text-decoration: none !important;
+.bg-icon#leaderboard {
+    transition: all 0.5s ease;
+    height: 120px;
+    margin-top: -12px;
+    fill: #eee;
 }
-
+.bg-icon#add {
+    transition: all 0.5s ease;
+    height: 130px;
+    margin-top: -9px;
+    fill: #eee;
+}
+.tile .text{
+    transition: all 0.5s ease;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: 1rem;
+    line-height: 1rem;
+    padding: 3px 9px;
+    color: gray;
+    background-color: #eee;
+}
 .player > * {
     display: inline-block;;
 }
