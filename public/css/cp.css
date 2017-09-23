@@ -2,7 +2,7 @@
     display: inline-flex;
     line-height: 55px;
     width: 100%;
-    border-bottom: solid 5px darkgray;
+    border-bottom: solid 5px #eee;
     margin-bottom: .75rem;
 }
 .main-header {
@@ -25,19 +25,40 @@
     font-size: 1.75rem
 }
 .tile {
+    cursor: pointer;
+    position: relative;
+    color: gray;
     font-size: 1.5rem;
     text-align: center;
     height: 200px;
     line-height: 200px;
     margin-bottom: .75rem;
-    background-color: gray;
+    border: 2px solid #eee;
+    transition: all 0.3s ease;
+    overflow: hidden;
 }
-
+.tile:hover {
+    color: #166db1;
+    border: 2px solid gray;
+    font-size: 1.75rem;
+}
+.tile:hover .bg-icon#record{
+    color: gray;
+    font-size: 20rem;
+}
 .tile.half-height {
     height: 100px;
     line-height: 100px;
 }
-
+.background-icon-container {
+    position: absolute;
+    width: 100%;
+}
+.bg-icon#record{
+    transition: all 0.5s ease;
+    font-size: 23rem;
+    color: #eee;
+}
 a:hover {
     text-decoration: none !important;
 }
@@ -70,6 +91,10 @@ th.wins {
     border: 1px solid #166db1;
     border-radius: 2px;
     box-sizing: border-box;
+}
+.message-container.error {
+    color: red !important;
+    border: 1px solid red !important;
 }
 .choose-winner-container {
     margin-left: 0px !important;
@@ -130,7 +155,7 @@ th.wins {
 
 .ciu-border-box {
     padding: 1rem;
-    border: solid #f7f7f9;
+    border: solid #eee;
     border-width: .2rem;
 }
 .winner-action {

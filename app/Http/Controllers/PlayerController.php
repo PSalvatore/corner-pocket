@@ -9,13 +9,13 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 // use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\Validator;
 
 class PlayerController extends Controller
 {
     public function index(Request $request)
     {
         return Player::all();
-        // return DB::table('players')->select('*')->get();
     }
 
     /**
@@ -26,7 +26,9 @@ class PlayerController extends Controller
      */
     public function store(Request $request)
     {
-        // Validate the request...
+        $request->validate([
+            'name' => 'required|unique:players|max:25',
+        ]);
 
         $player = new Player;
 
@@ -46,7 +48,14 @@ class PlayerController extends Controller
      */
     public function update(Request $request)
     {
-        // Validate the request...
+        if (!Player::where('name', '=', $request->input('player1'))->exists()) {
+            $request->merge([ 'name' => $request->input('player1') ]);
+            $this->store($request);
+        }
+        if (!Player::where('name', '=', $request->input('player2'))->exists()) {
+            $request->merge([ 'name' => $request->input('player2') ]);
+            $this->store($request);
+        }
 
         Player::where('name', $request->input('player1'))->increment('games_played', 1);
         Player::where('name', $request->input('player2'))->increment('games_played', 1);

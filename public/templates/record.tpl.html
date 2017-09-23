@@ -2,16 +2,16 @@
     <div ng-hide="start"  class="player-select-container">
         <div class="row">
             <div class="col-md-12">
-                <label>Set Players</label>
+                <div class="page-title ">Set Players</div>
             </div>
         </div>
-        <form ng-submit="startGame()">
+        <form name="set_playes_form" ng-submit="startGame()">
             <div class="ciu-border-box">
                 <div class="player1-search-container" ng-init="player1DropShow = false">
                     <label>Player 1</label>
                     <div class="player-dropdown">
                         <input class="form-control" name="player1" placeholder="Enter Player 1" ng-keydown="player1DropShow = true" ng-keypress="player1DropShow = true"
-                         ng-model="playerData.player1" type="text" autocomplete="off"/>
+                         ng-model="playerData.player1" type="text" autocomplete="off" required/>
                         <div class="player-dropdown-menu" ng-show="player1DropShow == true && playerData.player1.length > 0" ng-hide="player1DropShow == false">
                             <div class="player-dropdown-item" ng-click="setPlayer($event, 1);" class="name" ng-bind="player.name" ng-repeat="player in players | filter:playerData.player1"></div>
                         </div>
@@ -21,7 +21,7 @@
                     <label>Player 2</label>
                     <div class="player-dropdown">
                         <input class="form-control" name="player2" placeholder="Enter Player 2" ng-keydown="player2DropShow = true" ng-keypress="player2DropShow = true"
-                        ng-model="playerData.player2" type="text" autocomplete="off"/>
+                        ng-model="playerData.player2" type="text" autocomplete="off" required/>
                         <div class="player-dropdown-menu" ng-show="player2DropShow == true && playerData.player2.length > 0" ng-hide="player2DropShow == false">
                             <div class="player-dropdown-item" ng-click="setPlayer($event, 2)" class="name" ng-bind="player.name" ng-repeat="player in players | filter:playerData.player2"></div>
                         </div>

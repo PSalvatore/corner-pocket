@@ -1,4 +1,4 @@
-angular.module('mainCtrl', []).controller('main', function($scope, $http, Player, $timeout) {
+angular.module('mainCtrl', []).controller('main', function($scope, $http, $location, Player, $timeout) {
     // object to hold all the data for the new player form
     $scope.playerData = {};
 
@@ -10,6 +10,10 @@ angular.module('mainCtrl', []).controller('main', function($scope, $http, Player
     $scope.showAddMessage = false;
     $scope.gameMessage = "";
     $scope.showGameMessage = false;
+
+    $scope.go = function ( path ) {
+        $location.path( path );
+    };
 
     // GET ALL PLAYERS ==============
     Player.get().then(function (data){
@@ -24,6 +28,7 @@ angular.module('mainCtrl', []).controller('main', function($scope, $http, Player
         $scope.loading = true;
 
         Player.save($scope.playerData).then(function (success){
+            $scope.showErrorMessage = false;
             $scope.addMessage =  successWord() + "! " + $scope.playerData.name + " has been added!";
             $scope.showAddMessage = true;
             $scope.loading = false;
@@ -33,7 +38,10 @@ angular.module('mainCtrl', []).controller('main', function($scope, $http, Player
                 $scope.playerData.name = null;
             }, 5000);
         },function (error){
-            console.log(error);
+            var err_msg = error.data.errors.name;
+            $scope.addErrorMessage =  "Oops! "+ err_msg;
+            $scope.showErrorMessage = true;
+            $scope.loading = false;
         });
     };
 
