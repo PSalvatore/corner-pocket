@@ -1,4 +1,4 @@
-angular.module('routes', ['ngRoute']).config(function($locationProvider, $routeProvider) {
+angular.module('routes', ['ngRoute']).config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $locationProvider.html5Mode(true).hashPrefix('!');
     $routeProvider
     .when('/record', {
@@ -17,4 +17,4 @@ angular.module('routes', ['ngRoute']).config(function($locationProvider, $routeP
         templateUrl: '/../templates/actions.tpl.html',
         controller: 'main'
     });
-});
+}]);

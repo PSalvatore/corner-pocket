@@ -1,4 +1,4 @@
-angular.module('mainCtrl', []).controller('main', function($scope, $http, $location, Player, $timeout) {
+angular.module('mainCtrl', ['ngRoute']).controller('main', ['$scope', '$http', '$location', 'Player', '$timeout' ,function($scope, $http, $location, Player, $timeout) {
     // object to hold all the data for the new player form
     $scope.playerData = {};
 
@@ -100,7 +100,7 @@ angular.module('mainCtrl', []).controller('main', function($scope, $http, $locat
             $scope.showRecordErrorMessage = true;
         });
     };
-});
+}]);
 
 function successWord(){
     var words = ['Great', 'Yea', 'Radical', 'Good', 'Awesome', 'Fantastic',

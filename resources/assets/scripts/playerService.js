@@ -1,4 +1,4 @@
-angular.module('playerService', []).factory('Player', function($http) {
+angular.module('playerService', []).factory('Player', ['$http', function($http) {
 
     return {
         // get all the players
@@ -27,7 +27,7 @@ angular.module('playerService', []).factory('Player', function($http) {
 
     };
 
-});
+}]);
 
 function queryParams(source) {
   var array = [];
