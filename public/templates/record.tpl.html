@@ -21,7 +21,7 @@
                     <label>Player 2</label>
                     <div class="player-dropdown">
                         <input class="form-control" name="player2" placeholder="Enter Player 2" ng-keydown="player2DropShow = true" ng-keypress="player2DropShow = true"
-                        ng-focus="player1DropShow = false;" ng-blur="player2DropShow = false" ng-model="playerData.player2" type="text" autocomplete="off" required/>
+                        ng-focus="player1DropShow = false;" ng-model="playerData.player2" type="text" autocomplete="off" required/>
                         <div class="player-dropdown-menu" ng-show="player2DropShow == true && playerData.player2.length > 0" ng-hide="player2DropShow == false">
                             <div class="player-dropdown-item" ng-click="setPlayer($event, 2)" class="name" ng-bind="player.name" ng-repeat="player in players | filter:playerData.player2"></div>
                         </div>
